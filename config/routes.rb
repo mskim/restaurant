@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  resources :menus
+
+  get 'home/index'
+
+  get 'home/about'
+
   devise_for :users
   resources :categories
 
-  resources :blogs
-
   resources :pictures
-
-  resources :places
 
   resources :categoryls
 

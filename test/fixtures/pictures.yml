@@ -2,8 +2,8 @@
 
 one:
   cation: MyString
-  place_id: 1
+  menu_id: 1
 
 two:
   cation: MyString
-  place_id: 1
+  menu_id: 1

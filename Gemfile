@@ -50,6 +50,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
 end
 
+gem 'carrierwave'
 gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.0.7'
 gem 'devise'

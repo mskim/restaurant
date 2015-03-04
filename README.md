@@ -6,40 +6,39 @@ Rails App for Restaurant Guide near school
 ## User
 	- name
 	- school
-	- role (admin, user)
-	- devise items
+	- devise items(email, password)
 	
 ## school
 	- name
 	- address
 	
 ## category
-	- name
+	- category
 
-## place
+## menu
 	- name
-	- address
-	- phone
-	- description:text
+	- category
+	- place
 	
-	has_many :comments
-	has_many :pictures
-
+	** has_many pictures
+	** has_many likes
+	
 ## picture
-	caption:text
-	place_id
+	menu_id:integer
+	file_name
+	**  belongs_to :menu
+
+## likes
+	- user:integer
+	- menu:integer
 	
-	belongs_to :place
+	**  belongs_to :menu
+	**  belongs_to :user
 	
 ## comment
 	- comment:text
-	- place_id:integer
+	- menu_id:integer
 	- user_id:integer
 
-	belongs_to :place
+	belongs_to :menu
 	belongs_to :user
-
-## blog
-	- title
-	- body
-	- author

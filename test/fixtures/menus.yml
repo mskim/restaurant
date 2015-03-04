@@ -3,13 +3,9 @@
 one:
   name: MyString
   category: MyString
-  address: MyString
-  phone: MyString
-  description: MyText
+  place: MyString
 
 two:
   name: MyString
   category: MyString
-  address: MyString
-  phone: MyString
-  description: MyText
+  place: MyString

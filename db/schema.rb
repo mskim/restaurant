@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210144923) do
-
-  create_table "blogs", force: :cascade do |t|
-    t.string   "title"
-    t.string   "author"
-    t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150304135117) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -27,21 +19,20 @@ ActiveRecord::Schema.define(version: 20150210144923) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pictures", force: :cascade do |t|
-    t.string   "cation"
-    t.integer  "place_id"
+  create_table "menus", force: :cascade do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "place"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "places", force: :cascade do |t|
-    t.string   "name"
-    t.string   "category"
-    t.string   "address"
-    t.string   "phone"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "pictures", force: :cascade do |t|
+    t.string   "cation"
+    t.integer  "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "picture"
   end
 
   create_table "schools", force: :cascade do |t|
