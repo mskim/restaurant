@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @menu.name %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @menu.category %>
-</p>
-
-<p>
-  <strong>Place:</strong>
-  <%= @menu.place %>
-</p>
-
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+<div class="row">
+	<div class= 'col-md-6'>
+		<%= render 'form' %>
+	</div>
+	
+	<div class= 'col-md-6'>
+		<div class="row">
+		  <% for picture in @menu.pictures %>
+		    <div class="col-md-4">
+			  <% if  picture.image? %>
+			  <%= image_tag picture.image_url(:thumb).to_s %>
+			  <div class="name"><%= picture.caption %></div>
+		      <div class="actions">
+		        <%= link_to "Edit", edit_picture_path(picture) %> |
+		        <%= link_to "Remove", picture, :confirm => 'Are you sure?', :method => :delete %>
+		      </div>
+			  <%  end %>
+		    </div>
+		  <% end %>
+		  <div class="clear"></div>
+		</div>
+		<p>
+		  <%= link_to "Add a Picture", new_picture_path(:munu_id => @munu) %>
+		</p>
+	</div>
+</div>

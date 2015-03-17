@@ -3,7 +3,7 @@ class CreateMenus < ActiveRecord::Migration
     create_table :menus do |t|
       t.string :name
       t.string :category
-      t.string :place
+      t.integer :place_id
 
       t.timestamps null: false
     end

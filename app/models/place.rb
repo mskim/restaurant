@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: schools
+# Table name: places
 #
 #  id         :integer          not null, primary key
 #  name       :string
@@ -11,19 +11,21 @@
 #  updated_at :datetime         not null
 #
 
-class School < ActiveRecord::Base
-    
+class Place < ActiveRecord::Base
+  has_many :menus
+  
+  
   def self.save_csv
     require 'csv'
-    attributes =  School.first.attributes
+    attributes =  Place.first.attributes
     attributes.delete("id")
     attributes.delete("created_at")
     attributes.delete("updated_at")
-    path = File.join(Rails.root, "db/school_export.csv")
+    path = File.join(Rails.root, "db/place_export.csv")
     CSV.open(path, "wb") do |csv|
       csv << attributes.keys
-      School.all.each do |school|
-        csv << school.attributes.values_at(*attributes.keys)
+      Place.all.each do |place|
+        csv << place.attributes.values_at(*attributes.keys)
       end
     end    
   end
