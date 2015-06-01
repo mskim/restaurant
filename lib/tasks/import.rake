@@ -3,6 +3,18 @@ require 'csv'
 
 namespace :import do
   
+  desc ' Import area data from area.txt'
+  task :area => :environment do
+    path = File.join(Rails.root, "/public/area.txt")
+    count = 0
+    File.readlines(path).each do |row|
+      area = Area.create(name: row.chomp!)
+      puts "#{name}- #{area.errors.full_messages.join(",")}" if area.errors.any?
+      count += 1 if area.persisted?
+    end
+    puts "Imported #{count} areas"
+  end
+  
   desc ' Import place data from db/place.csv'
   task :place => :environment do
     path = File.join(Rails.root, "db/place.csv")
